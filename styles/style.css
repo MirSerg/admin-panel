@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: Nunito;
+  src: url("../fonts/Nunitoregular.woff");
+}
+
+@font-face {
+  font-family: Nunito;
+  src: url("../fonts/Nunitobold.woff");
+  font-weight: bold;
+}
+
+body {
+  font-family: Nunito, sans-serif;
+}
+
+/* установим для общего блока свойство flex,
+ чтобы два основных блока: sidebar и content располагались в одну строку*/
+.layout {
+  display: flex;
+  /* растягиваем боковую панель вниз */
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  /* для устранения сжимания */
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #4E73DF 0%, #224ABE 100%);
+}
+
+/* можно установить высоту лого, но лучше обойтись без задания размеров
+ и использовать padding */
+.logo {
+  padding: 20px 0;
+  /* т.к. картинка - строчный элемент, то нет необходимости использовать flex */
+  text-align: center;
+  display: block;
+}
+
+.navigation ul {
+  list-style: none;
+}
+
+/*.navigation-item.active a,*/
+.navigation-item a:hover {
+  background: rgba(0, 0, 0, 0.57);
+}
+
+.navigation-item a {
+  /* поскольку в строке меню находятся два элемента (иконка и имя пункта меню)
+   выравниваем их с помощью свойства flex */
+  display: flex;
+  text-decoration: none;
+  /* выровняем иконку и текст по центру - это свойство применяется для дочерних элементов */
+  align-items: center;
+  /* отступ справа делаем таким же небольшим 20px в случае изменения ширины текста,
+   т.е. имеем возможность использовать динамический контент и правильную вёрстку */
+  padding: 16px 20px;
+}
+
+.navigation-item a span {
+  font-size: 14px;
+  line-height: 19px;
+  color: #FFF;
+  margin-left: 10px;
+}
+
+.content {
+  /* это свойство позволяет растянуть элемент до конца видимой области! */
+  flex-grow: 1;
+}
+
+.header {
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+  background: rgb(255, 255, 255);
+  padding: 19px 20px 18px 20px;
+  /* для расположения элементов в одну строку применяем свойство flex */
+  display: flex;
+  /* для того чтобы элементы разнеслись по сторонам блока header применяем */
+  justify-content: space-between;
+}
+
+.header-search {
+  display: flex;
+  position: relative;
+}
+
+.header-search-input {
+  border-radius: 5px 0px 0px 5px;
+  background: rgb(248, 249, 252);
+  color: #000;
+  font-size: 14px;
+  line-height: 19px;
+  /* убираем рамку у элемента input  */
+  border: 0;
+  padding: 7px 10px;
+  /* убираем обводку браузера при фокусе */
+  outline: none;
+}
+
+.header-search-input::placeholder {
+  color: rgb(179, 179, 179);
+}
+
+.header-search-button {
+  border-radius: 0px 5px 5px 0px;
+  background: rgb(75, 112, 220);
+  /* выравниваем иконку по центру */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  width: 33px;
+  cursor: pointer;
+}
+
+.header-info {
+  display: flex;
+}
+
+.header-info-actions {
+  /* убираем пробелы между элементами */
+  display: flex;
+  align-items: center;
+  /* добираем до 20px */
+  padding-right: 3px;
+  /* рисуем разделительную полоску */
+  border-right: 1px solid #B3B3B3;
+}
+
+.header-info-actions svg {
+  margin-right: 17px;
+}
+
+.header-info-user {
+  /* добавляем свойство flex, чтобы работать дочерними элементами */
+  display: flex;
+  align-items: center;
+}
+
+.header-info-user span {
+  color: rgb(133, 135, 150);
+  font-size: 14px;
+  line-height: 19px;
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
+.header-info-user-image {
+  width: 34px;
+  height: 34px;
+  background-image: url("../images/user2.jpg");
+  background-position: center;
+  /* чтобы картинка располагалась ровно по центру (center) и не искажалась */
+  background-size: cover;
+  /* для установки любой картинки - чтобы она стала круглой */
+  border-radius: 50%;
+}
+
+.container{
+  padding: 20px;
+}
+
+.block{
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  background: rgb(255, 255, 255);
+  margin: 20px;
+}
+
+.block-title{
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 27px;
+  color: rgb(61, 99, 210);
+  padding: 18px 20px 19px 20px;
+  border-radius: 5px 5px 0px 0px;
+  background: rgb(248, 249, 252);
+}
+
+.block-content{
+  padding: 20px;
+  color: rgb(133, 135, 150);
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.commentators .block-title{
+  text-align: center;
+}
+
+.commentators .block-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 49px 0 30px 0;
+}
+
+.commentator{
+  margin: 0 40px;
+  text-align: center;
+}
+
+.main-items{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.main-items .block{
+  max-width: 364px;
+}
+
+.header-search-result{
+  /* т.к. этот элемент будет всегда скрыт, то делаем none */
+  display: none;
+  position: absolute;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
+  background: rgb(255, 255, 255);
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  top: 40px;
+}
+
+.header-search-result-item{
+  padding: 10px;
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 19px;
+  border-bottom: 1px solid #EBEBEB;
+}
+.header-search-result-item:last-child{
+  border-bottom: 0;
+}
+
+.header-search:hover .header-search-result{
+  display: block;
+}
